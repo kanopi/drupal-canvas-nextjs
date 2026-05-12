@@ -1,0 +1,25 @@
+name: Pagination
+machineName: pagination
+status: true
+required: []
+props:
+  properties:
+    totalPages:
+      type: integer
+      title: Total Pages
+      description: The total number of pages
+      examples:
+        - 10
+    currentPage:
+      type: integer
+      title: Current Page
+      description: The currently active page number
+      examples:
+        - 1
+    baseUrl:
+      type: string
+      format: uri-reference
+      title: Base URL
+      description: The base URL for page links (page number will be appended)
+      examples:
+        - /blog?page=

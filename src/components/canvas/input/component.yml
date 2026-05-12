@@ -1,0 +1,50 @@
+name: Input
+machineName: input
+status: true
+required: []
+props:
+  properties:
+    label:
+      type: string
+      title: Label
+      description: The label text for the input field
+      examples:
+        - Email Address
+    placeholder:
+      type: string
+      title: Placeholder
+      description: Placeholder text shown when the input is empty
+      examples:
+        - Enter your email
+    required:
+      type: boolean
+      title: Required
+      description: Whether the input is required
+      examples:
+        - false
+    helpText:
+      type: string
+      title: Help Text
+      description: Optional help text displayed below the input
+      examples:
+        - We'll never share your email.
+    name:
+      type: string
+      title: Name
+      description: The name attribute for the input field
+      examples:
+        - email
+    inputType:
+      type: string
+      enum: ["text", "email", "password", "number", "tel", "url"]
+      meta:enum:
+        text: Text
+        email: Email
+        password: Password
+        number: Number
+        tel: Telephone
+        url: URL
+      title: Input Type
+      description: The type of input field
+      examples:
+        - text

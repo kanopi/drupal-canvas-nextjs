@@ -1,0 +1,126 @@
+name: Section
+machineName: section
+status: true
+required: []
+props:
+  properties:
+    backgroundMedia:
+      type: object
+      $ref: json-schema-definitions://canvas.module/image
+      title: Background Media
+    gridLayout:
+      type: string
+      enum: ["100", "50-50", "33-33-33", "75-25", "25-75", "67-33", "33-67", "50-25-25", "25-25-50", "25-25-25-25"]
+      meta:enum:
+        "100": "100"
+        "50-50": "50 / 50"
+        "33-33-33": "33 / 33 / 33"
+        "75-25": "75 / 25"
+        "25-75": "25 / 75"
+        "67-33": "67 / 33"
+        "33-67": "33 / 67"
+        "50-25-25": "50 / 25 / 25"
+        "25-25-50": "25 / 25 / 50"
+        "25-25-25-25": "25 / 25 / 25 / 25"
+      title: Grid Layout
+      description: Layout selected applies on desktop and tablet.
+      examples:
+        - "50-50"
+    viewsGrid:
+      type: string
+      enum: ["50-50", "33-33-33", "25-25-25-25"]
+      meta:enum:
+        "50-50": "50 / 50"
+        "33-33-33": "33 / 33 / 33"
+        "25-25-25-25": "25 / 25 / 25 / 25"
+      title: Views Grid
+      description: If you are using a view in this section, select the grid layout.
+      examples:
+        - "50-50"
+    columnsOnMobile:
+      type: string
+      enum: ["1", "2", "3"]
+      meta:enum:
+        "1": "1"
+        "2": "2"
+        "3": "3"
+      title: Columns On Mobile
+      examples:
+        - "1"
+    variation:
+      type: string
+      enum: ["primary", "secondary", "tertiary", "accent", "muted", "light", "dark"]
+      meta:enum:
+        primary: Primary
+        secondary: Secondary
+        tertiary: Tertiary
+        accent: Accent
+        muted: Muted
+        light: Light
+        dark: Dark
+      title: Variation
+      description: Background color for this component. Leave empty for the default.
+    sectionWidth:
+      type: string
+      enum: ["100%", "90%", "80%", "75%", "50%"]
+      meta:enum:
+        "100%": "100%"
+        "90%": "90%"
+        "80%": "80%"
+        "75%": "75%"
+        "50%": "50%"
+      title: Section Width
+      examples:
+        - "100%"
+    showHeaderRegion:
+      type: boolean
+      title: Show Header Region
+      examples:
+        - true
+    showFooterRegion:
+      type: boolean
+      title: Show Footer Region
+      examples:
+        - true
+    marginTop:
+      type: string
+      enum: ["16", "32", "64"]
+      meta:enum:
+        "16": Small
+        "32": Medium
+        "64": Large
+      title: Margin Top
+    marginBottom:
+      type: string
+      enum: ["16", "32", "64"]
+      meta:enum:
+        "16": Small
+        "32": Medium
+        "64": Large
+      title: Margin Bottom
+    paddingTop:
+      type: string
+      enum: ["16", "32", "64"]
+      meta:enum:
+        "16": Small
+        "32": Medium
+        "64": Large
+      title: Padding Top
+    paddingBottom:
+      type: string
+      enum: ["16", "32", "64"]
+      meta:enum:
+        "16": Small
+        "32": Medium
+        "64": Large
+      title: Padding Bottom
+slots:
+  headerSlot:
+    title: Header
+    description: Content above the grid.
+  mainSlot:
+    title: Grid
+    description: The main content area rendered in the grid layout.
+  footerSlot:
+    title: Footer
+    description: Content below the grid.

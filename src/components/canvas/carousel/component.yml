@@ -1,0 +1,21 @@
+name: Carousel
+machineName: carousel
+status: true
+required: []
+props:
+  properties:
+    autoPlay:
+      type: boolean
+      title: Auto Play
+      examples:
+        - false
+    autoPlayInterval:
+      type: integer
+      title: Auto Play Interval
+      description: Milliseconds between slides
+      examples:
+        - 5000
+slots:
+  items:
+    title: Items
+    description: Carousel slides to display (use CarouselItem components from shadcn/ui)

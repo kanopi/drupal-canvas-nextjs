@@ -1,0 +1,110 @@
+name: Header
+machineName: header
+status: true
+required: []
+props:
+  properties:
+    collapseBreakpoint:
+      type: string
+      enum: ["640", "768", "1024"]
+      meta:enum:
+        "640": "640px"
+        "768": "768px"
+        "1024": "1024px"
+      title: Collapse Breakpoint
+      description: Viewport width below which the header collapses to mobile layout.
+      examples:
+        - "768"
+    chromeAlignment:
+      type: string
+      enum: ["start", "center", "end", "between", "around"]
+      meta:enum:
+        start: Start (left)
+        center: Center
+        end: End (right)
+        between: Space between (edges)
+        around: Space around
+      title: Chrome Alignment
+      description: How chrome slot items are arranged across the bar. "Space between" puts the first at the left and last at the right.
+      examples:
+        - between
+    variation:
+      type: string
+      enum: ["primary", "secondary", "tertiary", "accent", "muted", "light", "dark"]
+      meta:enum:
+        primary: Primary
+        secondary: Secondary
+        tertiary: Tertiary
+        accent: Accent
+        muted: Muted
+        light: Light
+        dark: Dark
+      title: Variation
+      description: Background color for this component. Leave empty for the default.
+    chromeVariation:
+      type: string
+      enum: ["primary", "secondary", "tertiary", "accent", "muted", "light", "dark"]
+      meta:enum:
+        primary: Primary
+        secondary: Secondary
+        tertiary: Tertiary
+        accent: Accent
+        muted: Muted
+        light: Light
+        dark: Dark
+      title: Chrome Variation
+      description: Background variation for the chrome bar (full width above the nav row). Leave empty for the default.
+    overlayVariation:
+      type: string
+      enum: ["primary", "secondary", "tertiary", "accent", "muted", "light", "dark"]
+      meta:enum:
+        primary: Primary
+        secondary: Secondary
+        tertiary: Tertiary
+        accent: Accent
+        muted: Muted
+        light: Light
+        dark: Dark
+      title: Overlay Variation
+      description: Background variation for the mobile overlay panel. Leave empty for the default background.
+    width:
+      type: string
+      enum: ["100%", "90%", "80%", "75%", "50%"]
+      meta:enum:
+        "100%": "100%"
+        "90%": "90%"
+        "80%": "80%"
+        "75%": "75%"
+        "50%": "50%"
+      title: Width
+      examples:
+        - "100%"
+    brandInOverlay:
+      type: boolean
+      title: Brand In Overlay
+      description: Move brand slot content into the mobile overlay panel.
+    chromeInOverlay:
+      type: boolean
+      title: Chrome In Overlay
+      description: Move chrome slot content into the mobile overlay panel.
+    navigationInOverlay:
+      type: boolean
+      title: Navigation In Overlay
+      description: Move navigation slot content into the mobile overlay panel.
+    actionsInOverlay:
+      type: boolean
+      title: Actions In Overlay
+      description: Move actions slot content into the mobile overlay panel.
+slots:
+  chrome:
+    title: Chrome
+    description: Full-width bar above the main nav row — utility nav, announcements, etc.
+  brand:
+    title: Brand
+    description: Logo, site name — visible in the nav bar by default.
+  navigation:
+    title: Navigation
+    description: Main navigation — place Menu components here.
+  actions:
+    title: Actions
+    description: Right side — buttons, search, utility links.

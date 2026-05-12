@@ -1,0 +1,25 @@
+name: Accordion
+machineName: accordion
+status: true
+required: []
+props:
+  properties:
+    accordionType:
+      type: string
+      enum: ["single", "multiple"]
+      meta:enum:
+        single: Single
+        multiple: Multiple
+      title: Accordion Type
+      examples:
+        - single
+    collapsible:
+      type: boolean
+      title: Collapsible
+      description: Whether the accordion items can be fully collapsed
+      examples:
+        - true
+slots:
+  items:
+    title: Items
+    description: Accordion items to display

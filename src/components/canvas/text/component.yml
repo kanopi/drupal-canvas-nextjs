@@ -1,0 +1,14 @@
+name: Text
+machineName: text
+status: true
+required: []
+props:
+  properties:
+    text:
+      type: string
+      contentMediaType: text/html
+      x-formatting-context: block
+      title: Text
+      description: Rich text content from CKEditor.
+      examples:
+        - <p>The quick brown fox jumps over the lazy dog.</p>

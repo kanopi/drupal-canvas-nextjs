@@ -1,0 +1,21 @@
+name: Separator
+machineName: separator
+status: true
+required: []
+props:
+  properties:
+    orientation:
+      type: string
+      enum: ["horizontal", "vertical"]
+      meta:enum:
+        horizontal: Horizontal
+        vertical: Vertical
+      title: Orientation
+      examples:
+        - horizontal
+    decorative:
+      type: boolean
+      title: Decorative
+      description: Whether the separator is purely decorative (hidden from assistive technology)
+      examples:
+        - true

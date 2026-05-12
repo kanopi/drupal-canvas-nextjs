@@ -1,0 +1,77 @@
+name: Dialog
+machineName: dialog
+status: true
+required: []
+props:
+  properties:
+    title:
+      type: string
+      title: Title
+      description: The dialog title text
+      examples:
+        - Dialog Title
+    description:
+      type: string
+      contentMediaType: text/html
+      x-formatting-context: block
+      title: Description
+      description: The dialog description content
+      examples:
+        - <p>This is a dialog description with supporting text.</p>
+    triggerLabel:
+      type: string
+      title: Trigger Label
+      description: The text displayed on the button that opens the dialog
+      examples:
+        - Open Dialog
+    triggerVariant:
+      type: string
+      enum: ["default", "destructive", "outline", "secondary", "ghost", "link"]
+      meta:enum:
+        default: Default
+        destructive: Destructive
+        outline: Outline
+        secondary: Secondary
+        ghost: Ghost
+        link: Link
+      title: Trigger Variant
+      examples:
+        - default
+    triggerSize:
+      type: string
+      enum: ["default", "sm", "lg"]
+      meta:enum:
+        default: Default
+        sm: Small
+        lg: Large
+      title: Trigger Size
+      examples:
+        - default
+    headingElement:
+      type: string
+      enum: ["h1", "h2", "h3", "h4", "h5", "h6"]
+      meta:enum:
+        h1: Heading 1
+        h2: Heading 2
+        h3: Heading 3
+        h4: Heading 4
+        h5: Heading 5
+        h6: Heading 6
+      title: Heading Element
+      examples:
+        - h2
+    dialogSize:
+      type: string
+      enum: ["sm", "md", "lg", "xl"]
+      meta:enum:
+        sm: Small
+        md: Medium
+        lg: Large
+        xl: Extra Large
+      title: Dialog Size
+      examples:
+        - md
+slots:
+  content:
+    title: Content
+    description: The main content area of the dialog

@@ -1,0 +1,22 @@
+name: Collapsible
+machineName: collapsible
+status: true
+required: []
+props:
+  properties:
+    triggerLabel:
+      type: string
+      title: Trigger Label
+      description: The text displayed on the trigger button
+      examples:
+        - Toggle Content
+    defaultOpen:
+      type: boolean
+      title: Default Open
+      description: Whether the collapsible content is open by default
+      examples:
+        - false
+slots:
+  content:
+    title: Content
+    description: The collapsible content area

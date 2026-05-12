@@ -1,0 +1,6 @@
+{
+  "componentDir": "./src/components/canvas",
+  "pagesDir": "./pages",
+  "outputDir": "dist",
+  "globalCssPath": "./src/canvas-global.css"
+}

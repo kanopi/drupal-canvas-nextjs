@@ -1,0 +1,30 @@
+name: Scroll Area
+machineName: scroll_area
+status: true
+required: []
+props:
+  properties:
+    maxHeight:
+      type: string
+      enum: ["sm", "md", "lg", "xl"]
+      meta:enum:
+        sm: "Small (200px)"
+        md: "Medium (400px)"
+        lg: "Large (600px)"
+        xl: "Extra Large (800px)"
+      title: Max Height
+      examples:
+        - md
+    scrollOrientation:
+      type: string
+      enum: ["vertical", "horizontal"]
+      meta:enum:
+        vertical: Vertical
+        horizontal: Horizontal
+      title: Scroll Orientation
+      examples:
+        - vertical
+slots:
+  content:
+    title: Content
+    description: The scrollable content

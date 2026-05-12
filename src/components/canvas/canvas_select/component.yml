@@ -1,0 +1,97 @@
+name: Select
+machineName: canvas_select
+status: true
+description: "Options are template placeholders. In production, options are populated from Drupal field data."
+required: []
+props:
+  properties:
+    label:
+      type: string
+      title: Label
+      description: The label text for the select field
+      examples:
+        - Choose an option
+    placeholder:
+      type: string
+      title: Placeholder
+      description: Placeholder text shown as the default option
+      examples:
+        - Select...
+    required:
+      type: boolean
+      title: Required
+      description: Whether the select is required
+      examples:
+        - false
+    helpText:
+      type: string
+      title: Help Text
+      description: Optional help text displayed below the select
+      examples:
+        - Please select one option.
+    name:
+      type: string
+      title: Name
+      description: The name attribute for the select field
+      examples:
+        - category
+    option1Label:
+      type: string
+      title: Option 1 Label
+      examples:
+        - Option One
+    option1Value:
+      type: string
+      title: Option 1 Value
+      examples:
+        - option1
+    option2Label:
+      type: string
+      title: Option 2 Label
+      examples:
+        - Option Two
+    option2Value:
+      type: string
+      title: Option 2 Value
+      examples:
+        - option2
+    option3Label:
+      type: string
+      title: Option 3 Label
+      examples:
+        - Option Three
+    option3Value:
+      type: string
+      title: Option 3 Value
+      examples:
+        - option3
+    option4Label:
+      type: string
+      title: Option 4 Label
+    option4Value:
+      type: string
+      title: Option 4 Value
+    option5Label:
+      type: string
+      title: Option 5 Label
+    option5Value:
+      type: string
+      title: Option 5 Value
+    option6Label:
+      type: string
+      title: Option 6 Label
+    option6Value:
+      type: string
+      title: Option 6 Value
+    option7Label:
+      type: string
+      title: Option 7 Label
+    option7Value:
+      type: string
+      title: Option 7 Value
+    option8Label:
+      type: string
+      title: Option 8 Label
+    option8Value:
+      type: string
+      title: Option 8 Value

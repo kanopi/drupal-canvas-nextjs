@@ -1,0 +1,16 @@
+name: Accordion Item
+machineName: accordion_item
+status: true
+required: []
+props:
+  properties:
+    title:
+      type: string
+      title: Title
+      description: The trigger text for the accordion item
+      examples:
+        - Section Title
+slots:
+  content:
+    title: Content
+    description: The content revealed when the accordion item is expanded

@@ -1,0 +1,32 @@
+name: Avatar
+machineName: avatar
+status: true
+required: []
+props:
+  properties:
+    avatarImage:
+      type: object
+      $ref: json-schema-definitions://canvas.module/image
+      title: Avatar Image
+      examples:
+        - src: https://images.unsplash.com/photo-1472099645785-5658abf4ff4e
+          alt: User avatar
+          width: 80
+          height: 80
+    fallbackText:
+      type: string
+      title: Fallback Text
+      description: Text to display when the image is unavailable
+      examples:
+        - JB
+    size:
+      type: string
+      enum: ["sm", "md", "lg", "xl"]
+      meta:enum:
+        sm: Small
+        md: Medium
+        lg: Large
+        xl: Extra Large
+      title: Size
+      examples:
+        - md

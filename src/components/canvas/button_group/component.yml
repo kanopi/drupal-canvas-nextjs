@@ -1,0 +1,39 @@
+name: Button Group
+machineName: button_group
+status: true
+required: []
+props:
+  properties:
+    alignment:
+      type: string
+      enum: ["left", "center", "right"]
+      meta:enum:
+        left: Left
+        center: Center
+        right: Right
+      title: Alignment
+      examples:
+        - left
+    direction:
+      type: string
+      enum: ["horizontal", "vertical"]
+      meta:enum:
+        horizontal: Horizontal
+        vertical: Vertical
+      title: Direction
+      examples:
+        - horizontal
+    gap:
+      type: string
+      enum: ["sm", "md", "lg"]
+      meta:enum:
+        sm: Small
+        md: Medium
+        lg: Large
+      title: Gap
+      examples:
+        - md
+slots:
+  buttons:
+    title: Buttons
+    description: Drop Button components here. Spacing comes from the group's Gap, so individual buttons don't need their own margin.

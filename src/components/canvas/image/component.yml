@@ -1,0 +1,21 @@
+name: Image
+machineName: image
+status: true
+required: []
+props:
+  properties:
+    image:
+      type: object
+      $ref: json-schema-definitions://canvas.module/image
+      title: Image
+      examples:
+        - src: https://images.unsplash.com/photo-1506744038136-46273834b3fb
+          alt: A descriptive alt text
+          width: 800
+          height: 600
+    caption:
+      type: string
+      title: Caption
+      description: Optional caption displayed below the image.
+      examples:
+        - Photo by Jane Doe

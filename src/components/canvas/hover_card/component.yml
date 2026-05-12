@@ -1,0 +1,23 @@
+name: Hover Card
+machineName: hover_card
+status: true
+required: []
+props:
+  properties:
+    size:
+      type: string
+      enum: ["sm", "md", "lg"]
+      meta:enum:
+        sm: Small
+        md: Medium
+        lg: Large
+      title: Size
+      examples:
+        - md
+slots:
+  trigger:
+    title: Trigger
+    description: The element that triggers the hover card
+  content:
+    title: Content
+    description: The content displayed in the hover card

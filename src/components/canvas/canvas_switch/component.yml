@@ -1,0 +1,30 @@
+name: Switch
+machineName: canvas_switch
+status: true
+required: []
+props:
+  properties:
+    label:
+      type: string
+      title: Label
+      description: The label text for the switch
+      examples:
+        - Enable notifications
+    description:
+      type: string
+      title: Description
+      description: Optional description text below the label
+      examples:
+        - Receive email notifications when updates are available.
+    name:
+      type: string
+      title: Name
+      description: The name attribute for the switch
+      examples:
+        - notifications
+    defaultChecked:
+      type: boolean
+      title: Default Checked
+      description: Whether the switch is on by default
+      examples:
+        - false

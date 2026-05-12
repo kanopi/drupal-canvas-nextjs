@@ -1,0 +1,30 @@
+name: Progress
+machineName: progress
+status: true
+required: []
+props:
+  properties:
+    progressValue:
+      type: integer
+      title: Progress Value
+      description: The current progress value
+      examples:
+        - 60
+    maxValue:
+      type: integer
+      title: Max Value
+      description: The maximum value of the progress bar
+      examples:
+        - 100
+    progressLabel:
+      type: string
+      title: Progress Label
+      description: An accessible label for the progress bar
+      examples:
+        - Loading progress
+    showPercentage:
+      type: boolean
+      title: Show Percentage
+      description: Whether to display the percentage text
+      examples:
+        - true

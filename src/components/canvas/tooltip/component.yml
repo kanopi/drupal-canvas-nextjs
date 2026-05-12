@@ -1,0 +1,28 @@
+name: Tooltip
+machineName: tooltip
+status: true
+required: []
+props:
+  properties:
+    tooltipContent:
+      type: string
+      title: Tooltip Content
+      description: The text displayed in the tooltip
+      examples:
+        - This is a helpful tooltip
+    tooltipSide:
+      type: string
+      enum: ["top", "right", "bottom", "left"]
+      meta:enum:
+        top: Top
+        right: Right
+        bottom: Bottom
+        left: Left
+      title: Tooltip Side
+      description: The side where the tooltip appears relative to the trigger
+      examples:
+        - top
+slots:
+  trigger:
+    title: Trigger
+    description: The element that triggers the tooltip on hover or focus

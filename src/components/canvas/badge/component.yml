@@ -1,0 +1,33 @@
+name: Badge
+machineName: badge
+status: true
+required: []
+props:
+  properties:
+    text:
+      type: string
+      title: Text
+      description: The text content of the badge
+      examples:
+        - New
+    variant:
+      type: string
+      enum: ["default", "secondary", "destructive", "outline"]
+      meta:enum:
+        default: Default
+        secondary: Secondary
+        destructive: Destructive
+        outline: Outline
+      title: Variant
+      examples:
+        - default
+    size:
+      type: string
+      enum: ["sm", "md", "lg"]
+      meta:enum:
+        sm: Small
+        md: Medium
+        lg: Large
+      title: Size
+      examples:
+        - md

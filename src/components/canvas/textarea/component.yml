@@ -1,0 +1,42 @@
+name: Textarea
+machineName: textarea
+status: true
+required: []
+props:
+  properties:
+    label:
+      type: string
+      title: Label
+      description: The label text for the textarea
+      examples:
+        - Message
+    placeholder:
+      type: string
+      title: Placeholder
+      description: Placeholder text shown when the textarea is empty
+      examples:
+        - Type your message here
+    required:
+      type: boolean
+      title: Required
+      description: Whether the textarea is required
+      examples:
+        - false
+    helpText:
+      type: string
+      title: Help Text
+      description: Optional help text displayed below the textarea
+      examples:
+        - Maximum 500 characters.
+    name:
+      type: string
+      title: Name
+      description: The name attribute for the textarea
+      examples:
+        - message
+    rows:
+      type: integer
+      title: Rows
+      description: The number of visible text rows
+      examples:
+        - 4

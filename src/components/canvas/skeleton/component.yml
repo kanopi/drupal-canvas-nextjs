@@ -1,0 +1,38 @@
+name: Skeleton
+machineName: skeleton
+status: true
+required: []
+props:
+  properties:
+    variant:
+      type: string
+      enum: ["text", "heading", "circle", "rectangle", "card"]
+      meta:enum:
+        text: Text Line
+        heading: Heading
+        circle: Circle
+        rectangle: Rectangle
+        card: Card
+      title: Variant
+      examples:
+        - text
+    repeatCount:
+      type: integer
+      title: Repeat Count
+      description: Number of skeleton elements to render
+      examples:
+        - 1
+    width:
+      type: string
+      title: Width
+      description: The width of the skeleton element
+      examples:
+        - "100%"
+        - "200px"
+    height:
+      type: string
+      title: Height
+      description: The height of the skeleton element
+      examples:
+        - "20px"
+        - "200px"

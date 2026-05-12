@@ -1,0 +1,69 @@
+name: Toggle Group
+machineName: toggle_group
+status: true
+required: []
+props:
+  properties:
+    option1Label:
+      type: string
+      title: Option 1 Label
+      examples:
+        - Bold
+    option1Value:
+      type: string
+      title: Option 1 Value
+      examples:
+        - bold
+    option2Label:
+      type: string
+      title: Option 2 Label
+      examples:
+        - Italic
+    option2Value:
+      type: string
+      title: Option 2 Value
+      examples:
+        - italic
+    option3Label:
+      type: string
+      title: Option 3 Label
+    option3Value:
+      type: string
+      title: Option 3 Value
+    option4Label:
+      type: string
+      title: Option 4 Label
+    option4Value:
+      type: string
+      title: Option 4 Value
+    option5Label:
+      type: string
+      title: Option 5 Label
+    option5Value:
+      type: string
+      title: Option 5 Value
+    defaultValue:
+      type: string
+      title: Default Value
+      description: The value of the initially selected toggle
+      examples:
+        - bold
+    variant:
+      type: string
+      enum: ["default", "outline"]
+      meta:enum:
+        default: Default
+        outline: Outline
+      title: Variant
+      examples:
+        - default
+    size:
+      type: string
+      enum: ["default", "sm", "lg"]
+      meta:enum:
+        default: Default
+        sm: Small
+        lg: Large
+      title: Size
+      examples:
+        - default

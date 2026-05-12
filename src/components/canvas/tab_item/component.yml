@@ -1,0 +1,16 @@
+name: Tab Item
+machineName: tab_item
+status: true
+required: []
+props:
+  properties:
+    label:
+      type: string
+      title: Label
+      description: The text displayed on the tab button
+      examples:
+        - Overview
+slots:
+  content:
+    title: Content
+    description: The content displayed when this tab is active

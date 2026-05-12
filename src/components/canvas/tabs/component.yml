@@ -1,0 +1,10 @@
+name: Tabs
+machineName: tabs
+status: true
+required: []
+props:
+  properties: {}
+slots:
+  items:
+    title: Items
+    description: Tab items to display (use Tab Item components)

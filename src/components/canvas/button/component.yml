@@ -1,0 +1,43 @@
+name: Button
+machineName: button
+status: true
+required: []
+props:
+  properties:
+    label:
+      type: string
+      title: Label
+      description: The button text
+      examples:
+        - Click me
+    linkUrl:
+      type: string
+      title: Link URL
+      description: Optional URL to render the button as a link
+      format: uri-reference
+      examples:
+        - https://example.com
+    variant:
+      type: string
+      enum: ["default", "destructive", "outline", "secondary", "ghost", "link"]
+      meta:enum:
+        default: Default
+        destructive: Destructive
+        outline: Outline
+        secondary: Secondary
+        ghost: Ghost
+        link: Link
+      title: Variant
+      examples:
+        - default
+    size:
+      type: string
+      enum: ["default", "sm", "lg", "icon"]
+      meta:enum:
+        default: Default
+        sm: Small
+        lg: Large
+        icon: Icon
+      title: Size
+      examples:
+        - default

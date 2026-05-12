@@ -1,0 +1,30 @@
+name: Checkbox
+machineName: checkbox
+status: true
+required: []
+props:
+  properties:
+    label:
+      type: string
+      title: Label
+      description: The label text for the checkbox
+      examples:
+        - Accept terms and conditions
+    description:
+      type: string
+      title: Description
+      description: Optional description text below the label
+      examples:
+        - You agree to our Terms of Service and Privacy Policy.
+    name:
+      type: string
+      title: Name
+      description: The name attribute for the checkbox
+      examples:
+        - terms
+    defaultChecked:
+      type: boolean
+      title: Default Checked
+      description: Whether the checkbox is checked by default
+      examples:
+        - false

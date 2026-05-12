@@ -1,0 +1,100 @@
+name: Menu
+machineName: menu
+status: true
+required:
+  - menuName
+props:
+  properties:
+    menuName:
+      type: string
+      title: Menu Name
+      description: The Drupal menu machine name to display.
+      examples:
+        - main
+    menuLevel:
+      type: string
+      enum: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+      meta:enum:
+        "1": "1"
+        "2": "2"
+        "3": "3"
+        "4": "4"
+        "5": "5"
+        "6": "6"
+        "7": "7"
+        "8": "8"
+        "9": "9"
+      title: Menu Level
+      description: Starting level of the menu to display.
+      examples:
+        - "1"
+    menuDepth:
+      type: string
+      enum: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+      meta:enum:
+        "0": Unlimited
+        "1": "1"
+        "2": "2"
+        "3": "3"
+        "4": "4"
+        "5": "5"
+        "6": "6"
+        "7": "7"
+        "8": "8"
+        "9": "9"
+      title: Menu Depth
+      description: Maximum number of menu levels to display. 0 for unlimited.
+      examples:
+        - "0"
+    displayMode:
+      type: string
+      enum: ["hamburger", "horizontal", "vertical", "items"]
+      meta:enum:
+        hamburger: Hamburger
+        horizontal: Horizontal
+        vertical: Vertical
+        items: Items
+      title: Display Mode
+      description: "Hamburger: collapsed on mobile, horizontal on desktop. Horizontal: always horizontal, wraps. Vertical: always stacked. Items: inline items only (no hamburger), for use inside Header slots."
+      examples:
+        - hamburger
+    alignment:
+      type: string
+      enum: ["left", "right", "center", "even"]
+      meta:enum:
+        left: Left
+        right: Right
+        center: Center
+        even: Even
+      title: Alignment
+      description: "Item alignment when columns is 0 (flex mode). Left: start, Right: end, Center: center, Even: space-between."
+      examples:
+        - left
+    variation:
+      type: string
+      enum: ["primary", "secondary", "tertiary", "accent", "muted", "light", "dark"]
+      meta:enum:
+        primary: Primary
+        secondary: Secondary
+        tertiary: Tertiary
+        accent: Accent
+        muted: Muted
+        light: Light
+        dark: Dark
+      title: Variation
+      description: Background color for the menu wrapper. Leave empty for the default.
+    columns:
+      type: string
+      enum: ["0", "1", "2", "3", "4", "5", "6"]
+      meta:enum:
+        "0": None (use alignment)
+        "1": "1"
+        "2": "2"
+        "3": "3"
+        "4": "4"
+        "5": "5"
+        "6": "6"
+      title: Columns
+      description: "Grid column count. 0 = flex layout using alignment. 1-6 = CSS grid with that many columns."
+      examples:
+        - "0"

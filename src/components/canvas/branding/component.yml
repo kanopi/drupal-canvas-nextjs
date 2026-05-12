@@ -1,0 +1,24 @@
+name: Branding
+machineName: branding
+status: true
+required: []
+props:
+  properties:
+    showLogo:
+      type: boolean
+      title: Show Logo
+      description: Display the site logo.
+      examples:
+        - true
+    showSiteName:
+      type: boolean
+      title: Show Site Name
+      description: Display the site name.
+      examples:
+        - true
+    showSiteSlogan:
+      type: boolean
+      title: Show Site Slogan
+      description: Display the site slogan.
+      examples:
+        - true
