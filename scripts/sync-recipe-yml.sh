@@ -2,9 +2,14 @@
 #
 # sync-recipe-yml.sh
 #
-# After `npx canvas push` lands a component change in Drupal, run this to
-# copy the resulting canvas.js_component.*.yml + canvas.folder.*.yml configs
-# into a local checkout of the `ui` recipe so the recipe stays in sync.
+# After `npx canvas push` lands changes (components, folders, the global
+# CSS asset library) in Drupal, run this to copy the resulting recipe-
+# owned configs into a local checkout of the `ui` recipe.
+#
+# Syncs:
+#   - canvas.js_component.*.yml   (one per component)
+#   - canvas.folder.*.yml         (editor sidebar groupings)
+#   - canvas.asset_library.global.yml  (shadcn token contract + variation CSS)
 #
 # Usage:
 #   ./scripts/sync-recipe-yml.sh --recipe-path ../ui
@@ -34,7 +39,7 @@ Optional (one of):
   --ddev-project NAME     Name of an already-running DDEV project to use.
 
 If neither --drupal-dir nor --ddev-project is given, the script assumes the
-DDEV project named "next-canvas-dev" is running.
+DDEV project named "next-canvas-dev" is running as a sibling clone.
 USAGE
   exit 1
 }
@@ -56,12 +61,10 @@ done
 if [[ -n "$DRUPAL_DIR" ]]; then
   cd "$DRUPAL_DIR"
 elif [[ -n "$DDEV_PROJECT" ]]; then
-  # Use ddev's project name resolution.
   DRUPAL_DIR="$(ddev describe "$DDEV_PROJECT" 2>/dev/null | awk '/Location:/{print $2}')"
   [[ -z "$DRUPAL_DIR" ]] && { echo "Error: DDEV project '$DDEV_PROJECT' not found."; exit 1; }
   cd "$DRUPAL_DIR"
 else
-  # Default: next-canvas-dev sibling.
   SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
   if [[ -d "$SCRIPT_DIR/../../next-canvas-dev" ]]; then
     cd "$SCRIPT_DIR/../../next-canvas-dev"
@@ -74,24 +77,29 @@ fi
 echo "==> Exporting Drupal config from $(pwd)..."
 ddev drush config:export --destination=/tmp/canvas-export -y > /dev/null
 
-echo "==> Copying canvas.js_component.*.yml and canvas.folder.*.yml into $RECIPE_PATH/config/..."
-ddev exec "cp /tmp/canvas-export/canvas.js_component.*.yml /var/www/html/recipes/contrib/ui/config/ 2>/dev/null || true"
+echo "==> Syncing recipe-owned configs into $RECIPE_PATH/config/..."
 
-# Cross-mount copy (ddev exec writes inside the container; we need host-side copy).
-# Use rsync/cp directly via mounted dirs if possible, otherwise pull via drush.
-HOST_EXPORT_DIR="$(ddev exec pwd 2>/dev/null && echo)"
-# Simpler approach: cat each file out of the container.
-for prefix in canvas.js_component canvas.folder; do
-  for fname in $(ddev exec "ls /tmp/canvas-export/${prefix}.*.yml 2>/dev/null" || true); do
+# Names matched as glob patterns inside the DDEV container.
+PATTERNS=(
+  "canvas.js_component.*.yml"
+  "canvas.folder.*.yml"
+  "canvas.asset_library.global.yml"
+)
+
+count_copied=0
+for pattern in "${PATTERNS[@]}"; do
+  for fname in $(ddev exec "ls /tmp/canvas-export/${pattern} 2>/dev/null" || true); do
     base="$(basename "$fname")"
     ddev exec "cat /tmp/canvas-export/$base" > "$RECIPE_PATH/config/$base"
-    # Strip uuid line (recipes should not include instance UUIDs).
-    sed -i '' '/^uuid:/d' "$RECIPE_PATH/config/$base"
+    # Strip recipe-portability artifacts: instance uuid and the _core
+    # default_config_hash block (two lines).
+    sed -i '' -e '/^uuid:/d' -e '/^_core:$/d' -e '/^  default_config_hash:/d' "$RECIPE_PATH/config/$base"
+    count_copied=$((count_copied + 1))
   done
 done
 
 cd "$RECIPE_PATH"
-COUNT=$(git status --short config/ | wc -l | tr -d ' ')
-echo "==> $COUNT recipe config file(s) modified in $RECIPE_PATH/config/."
+modified=$(git status --short config/ 2>/dev/null | wc -l | tr -d ' ')
+echo "==> $count_copied file(s) copied; $modified now show changes in $RECIPE_PATH/config/."
 echo "    Review with: cd $RECIPE_PATH && git diff config/"
 echo "    Commit when ready."
